@@ -154,7 +154,7 @@ const pages = [
     kicker: "HOTEL 1 DE 5 · PARAÍSO DEL MAR",
     name: "Iberostar Paraíso del Mar",
     location: "Iberostar Paraíso del Mar, Playa Paraíso, Quintana Roo, México",
-    image: "src/paraisoDelMar.jpg",
+    image: "src/ParaisoDelMar.jpg",
     intro: "Iberostar Waves Paraíso del Mar combina la belleza natural de la Riviera Maya, una experiencia Todo Incluido premium, gastronomía internacional, actividades para toda la familia y acceso a una de las playas más atractivas del Caribe mexicano.",
     stats: [
       ["344", "Habitaciones"],
