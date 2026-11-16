@@ -972,11 +972,11 @@ function loadLeaflet() {
   leafletPromise = new Promise((resolve, reject) => {
     const stylesheet = document.createElement("link");
     stylesheet.rel = "stylesheet";
-    stylesheet.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    stylesheet.href = "vendor/leaflet/leaflet.css";
     document.head.appendChild(stylesheet);
 
     const script = document.createElement("script");
-    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    script.src = "vendor/leaflet/leaflet.js";
     script.onload = () => resolve(window.L);
     script.onerror = reject;
     document.head.appendChild(script);
