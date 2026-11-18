@@ -2,7 +2,7 @@
 <html lang="es"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mapamundi Â· The Iberostar Hotels 2026</title>
+<title>Mapamundi · The Iberostar Hotels 2026</title>
 <link rel="icon" type="image/png" href="src/logo%20png-02.png" />
 <link href="vendor/fonts/map.css" rel="stylesheet">
 <script src="vendor/js/d3.min.js"></script>
@@ -78,7 +78,7 @@
   <header>
     <div>
       <h1>The Iberostar Hotels</h1>
-      <div class="sub">Mapa mundial por categorÃ­a Â· 2026</div>
+      <div class="sub">Mapa mundial por categoría · 2026</div>
     </div>
     <div class="totals">
       <div class="tot"><div class="n" style="color:var(--waves)">36</div><div class="l">Waves</div></div>
@@ -91,8 +91,8 @@
   <div class="legend">
     <div class="item"><span class="dot" style="background:var(--waves)"></span>Iberostar Waves</div>
     <div class="item"><span class="dot" style="background:var(--selection)"></span>Iberostar Selection</div>
-    <div class="item"><span class="dot" style="background:var(--joia)"></span>JOIA Â· Grand Collection</div>
-    <div class="scale">TamaÃ±o del punto = nÂº de hoteles en el destino Â· Cada mapa a su propia escala</div>
+    <div class="item"><span class="dot" style="background:var(--joia)"></span>JOIA · Grand Collection</div>
+    <div class="scale">Tamaño del punto = nº de hoteles en el destino · Cada mapa a su propia escala</div>
   </div>
 
   <div class="grid" id="grid"></div>
@@ -100,51 +100,51 @@
 
   <div class="lists" id="lists"></div>
 
-  <footer>78 hoteles Â· 20 paÃ­ses y regiones Â· GeometrÃ­a: Natural Earth (world-atlas 110m)</footer>
+  <footer>78 hoteles · 20 países y regiones · Geometría: Natural Earth (world-atlas 110m)</footer>
 </div>
 
 <script>
 const CATS = [
   {key:'waves', label:'Iberostar Waves', color:'#cf4a5f'},
   {key:'selection', label:'Iberostar Selection', color:'#2fa898'},
-  {key:'joia', label:'JOIA Â· Grand Collection', color:'#1358a5'}
+  {key:'joia', label:'JOIA · Grand Collection', color:'#1358a5'}
 ];
 
 const DEST = [
- {n:'Palm Beach', c:'Aruba', r:'AmÃ©rica', lat:12.58, lon:-70.05, joia:['JOIA Aruba by Iberostar']},
- {n:'Praia do Forte', c:'Brasil', r:'AmÃ©rica', lat:-12.58, lon:-38.00, waves:['Iberostar Waves Bahia'], selection:['Iberostar Selection Praia do Forte']},
- {n:'Amazonas', c:'Brasil', r:'AmÃ©rica', lat:-3.10, lon:-60.02, joia:['Grand Amazon Expedition']},
- {n:'Puerto Plata', c:'Rep. Dominicana', r:'AmÃ©rica', lat:19.79, lon:-70.69, waves:['Iberostar Waves Costa Dorada']},
- {n:'BÃ¡varo Â· Punta Cana', c:'Rep. Dominicana', r:'AmÃ©rica', lat:18.68, lon:-68.42, waves:['Iberostar Waves Dominicana','Iberostar Waves Punta Cana'], selection:['Iberostar Selection BÃ¡varo Suites','Iberostar Selection Coral BÃ¡varo'], joia:['JOIA BÃ¡varo by Iberostar']},
- {n:'BayahÃ­be', c:'Rep. Dominicana', r:'AmÃ©rica', lat:18.36, lon:-68.83, selection:['Iberostar Selection Hacienda Dominicus']},
- {n:'Rose Hall Â· Montego Bay', c:'Jamaica', r:'AmÃ©rica', lat:18.52, lon:-77.83, waves:['Iberostar Waves Rose Hall Beach'], selection:['Iberostar Selection Rose Hall Suites'], joia:['JOIA Rose Hall by Iberostar']},
- {n:'CancÃºn', c:'MÃ©xico', r:'AmÃ©rica', lat:21.13, lon:-86.75, selection:['Iberostar Selection CancÃºn','Iberostar Selection Coral CancÃºn','Iberostar Selection Riviera CancÃºn']},
- {n:'Cozumel', c:'MÃ©xico', r:'AmÃ©rica', lat:20.42, lon:-86.92, waves:['Iberostar Waves Cozumel']},
- {n:'Riviera Maya Â· Playa ParaÃ­so', c:'MÃ©xico', r:'AmÃ©rica', lat:20.60, lon:-87.10, waves:['Iberostar Waves ParaÃ­so del Mar','Iberostar Waves ParaÃ­so Beach','Iberostar Waves Quetzal','Iberostar Waves TucÃ¡n'], selection:['Iberostar Selection ParaÃ­so Maya Suites','Iberostar Selection ParaÃ­so Lindo'], joia:['JOIA ParaÃ­so by Iberostar']},
- {n:'Punta Mita', c:'MÃ©xico', r:'AmÃ©rica', lat:20.77, lon:-105.52, selection:['Iberostar Selection Playa Mita']},
- {n:'Miami Beach', c:'Estados Unidos', r:'AmÃ©rica', lat:25.79, lon:-80.13, waves:['Iberostar Waves Berkeley Shore','Iberostar Waves Miami Beach']},
- {n:'ZanzÃ­bar', c:'Tanzania', r:'Ãfrica', lat:-6.13, lon:39.30, selection:['Iberostar Selection Zanzibar']},
- {n:'Marrakech', c:'Marruecos', r:'Ãfrica', lat:31.63, lon:-7.99, waves:['Iberostar Waves Club Palmeraie Marrakech']},
- {n:'SaÃ¯dia', c:'Marruecos', r:'Ãfrica', lat:35.10, lon:-2.23, waves:['Iberostar Waves SaÃ¯dia']},
- {n:'Agadir', c:'Marruecos', r:'Ãfrica', lat:30.42, lon:-9.60, waves:['Iberostar Waves Founty Beach']},
- {n:'Hammamet', c:'TÃºnez', r:'Ãfrica', lat:36.40, lon:10.62, waves:['Iberostar Waves Averroes']},
- {n:'Djerba', c:'TÃºnez', r:'Ãfrica', lat:33.80, lon:10.90, waves:['Iberostar Waves Mehari Djerba'], selection:['Iberostar Selection Eolia Djerba']},
- {n:'Port El Kantaoui', c:'TÃºnez', r:'Ãfrica', lat:35.89, lon:10.60, selection:['Iberostar Selection Diar El Andalous','Iberostar Selection Kantaoui Bay']},
- {n:'Monastir Â· Mahdia', c:'TÃºnez', r:'Ãfrica', lat:35.63, lon:10.95, selection:['Iberostar Selection Kuriat Palace','Iberostar Selection Royal El Mansour']},
+ {n:'Palm Beach', c:'Aruba', r:'América', lat:12.58, lon:-70.05, joia:['JOIA Aruba by Iberostar']},
+ {n:'Praia do Forte', c:'Brasil', r:'América', lat:-12.58, lon:-38.00, waves:['Iberostar Waves Bahia'], selection:['Iberostar Selection Praia do Forte']},
+ {n:'Amazonas', c:'Brasil', r:'América', lat:-3.10, lon:-60.02, joia:['Grand Amazon Expedition']},
+ {n:'Puerto Plata', c:'Rep. Dominicana', r:'América', lat:19.79, lon:-70.69, waves:['Iberostar Waves Costa Dorada']},
+ {n:'Bávaro · Punta Cana', c:'Rep. Dominicana', r:'América', lat:18.68, lon:-68.42, waves:['Iberostar Waves Dominicana','Iberostar Waves Punta Cana'], selection:['Iberostar Selection Bávaro Suites','Iberostar Selection Coral Bávaro'], joia:['JOIA Bávaro by Iberostar']},
+ {n:'Bayahíbe', c:'Rep. Dominicana', r:'América', lat:18.36, lon:-68.83, selection:['Iberostar Selection Hacienda Dominicus']},
+ {n:'Rose Hall · Montego Bay', c:'Jamaica', r:'América', lat:18.52, lon:-77.83, waves:['Iberostar Waves Rose Hall Beach'], selection:['Iberostar Selection Rose Hall Suites'], joia:['JOIA Rose Hall by Iberostar']},
+ {n:'Cancún', c:'México', r:'América', lat:21.13, lon:-86.75, selection:['Iberostar Selection Cancún','Iberostar Selection Coral Cancún','Iberostar Selection Riviera Cancún']},
+ {n:'Cozumel', c:'México', r:'América', lat:20.42, lon:-86.92, waves:['Iberostar Waves Cozumel']},
+ {n:'Riviera Maya · Playa Paraíso', c:'México', r:'América', lat:20.60, lon:-87.10, waves:['Iberostar Waves Paraíso del Mar','Iberostar Waves Paraíso Beach','Iberostar Waves Quetzal','Iberostar Waves Tucán'], selection:['Iberostar Selection Paraíso Maya Suites','Iberostar Selection Paraíso Lindo'], joia:['JOIA Paraíso by Iberostar']},
+ {n:'Punta Mita', c:'México', r:'América', lat:20.77, lon:-105.52, selection:['Iberostar Selection Playa Mita']},
+ {n:'Miami Beach', c:'Estados Unidos', r:'América', lat:25.79, lon:-80.13, waves:['Iberostar Waves Berkeley Shore','Iberostar Waves Miami Beach']},
+ {n:'Zanzíbar', c:'Tanzania', r:'África', lat:-6.13, lon:39.30, selection:['Iberostar Selection Zanzibar']},
+ {n:'Marrakech', c:'Marruecos', r:'África', lat:31.63, lon:-7.99, waves:['Iberostar Waves Club Palmeraie Marrakech']},
+ {n:'Saïdia', c:'Marruecos', r:'África', lat:35.10, lon:-2.23, waves:['Iberostar Waves Saïdia']},
+ {n:'Agadir', c:'Marruecos', r:'África', lat:30.42, lon:-9.60, waves:['Iberostar Waves Founty Beach']},
+ {n:'Hammamet', c:'Túnez', r:'África', lat:36.40, lon:10.62, waves:['Iberostar Waves Averroes']},
+ {n:'Djerba', c:'Túnez', r:'África', lat:33.80, lon:10.90, waves:['Iberostar Waves Mehari Djerba'], selection:['Iberostar Selection Eolia Djerba']},
+ {n:'Port El Kantaoui', c:'Túnez', r:'África', lat:35.89, lon:10.60, selection:['Iberostar Selection Diar El Andalous','Iberostar Selection Kantaoui Bay']},
+ {n:'Monastir · Mahdia', c:'Túnez', r:'África', lat:35.63, lon:10.95, selection:['Iberostar Selection Kuriat Palace','Iberostar Selection Royal El Mansour']},
  {n:'Creta', c:'Grecia', r:'Europa', lat:35.35, lon:24.80, waves:['Iberostar Waves Creta Panorama & Mare'], selection:['Iberostar Selection Creta Marine']},
  {n:'Budva', c:'Montenegro', r:'Europa', lat:42.29, lon:18.84, waves:['Iberostar Waves Bellevue','Iberostar Waves Slavija']},
  {n:'Herceg Novi', c:'Montenegro', r:'Europa', lat:42.45, lon:18.53, waves:['Iberostar Waves Herceg Novi']},
- {n:'Lagos Â· Algarve', c:'Portugal', r:'Europa', lat:37.10, lon:-8.67, selection:['Iberostar Selection Lagos Algarve']},
+ {n:'Lagos · Algarve', c:'Portugal', r:'Europa', lat:37.10, lon:-8.67, selection:['Iberostar Selection Lagos Algarve']},
  {n:'Lisboa', c:'Portugal', r:'Europa', lat:38.72, lon:-9.14, selection:['Iberostar Selection Lisboa']},
- {n:'CÃ¡diz', c:'EspaÃ±a Â· AndalucÃ­a', r:'Europa', lat:36.40, lon:-6.16, waves:['Iberostar Waves Royal Andalus'], selection:['Iberostar Selection AndalucÃ­a Playa']},
- {n:'MÃ¡laga Â· Marbella', c:'EspaÃ±a Â· AndalucÃ­a', r:'Europa', lat:36.51, lon:-4.88, waves:['Iberostar Waves MÃ¡laga Playa'], selection:['Iberostar Selection Marbella Coral Beach']},
- {n:'Ibiza', c:'EspaÃ±a Â· Baleares', r:'Europa', lat:38.98, lon:1.53, selection:['Iberostar Selection Santa Eulalia Ibiza']},
- {n:'Mallorca', c:'EspaÃ±a Â· Baleares', r:'Europa', lat:39.60, lon:3.00,
-   waves:['Iberostar Waves Alcudia Park','Iberostar Waves BahÃ­a de Palma','Iberostar Waves Cala Domingos','Iberostar Waves Cala Millor','Iberostar Waves Ciudad Blanca','Iberostar Waves Club Cala Barca','Iberostar Waves Cristina','Iberostar Waves Pinos Park','Iberostar Waves Playa de Muro'],
-   selection:['Iberostar Selection Albufera Playa','Iberostar Selection Albufera Park','Iberostar Selection JardÃ­n del Sol Suites','Iberostar Selection Llaut Palma','Iberostar Selection Playa de Muro Village','Iberostar Selection Playa de Palma','Iberostar Selection Es Trenc']},
- {n:'Fuerteventura', c:'EspaÃ±a Â· Canarias', r:'Europa', lat:28.36, lon:-14.05, waves:['Iberostar Waves Gaviotas Park','Iberostar Waves Playa Gaviotas'], selection:['Iberostar Selection Fuerteventura Palace']},
- {n:'Lanzarote', c:'EspaÃ±a Â· Canarias', r:'Europa', lat:28.92, lon:-13.66, selection:['Iberostar Selection Lanzarote Park']},
- {n:'Tenerife', c:'EspaÃ±a Â· Canarias', r:'Europa', lat:28.10, lon:-16.72, waves:['Iberostar Waves Bouganville Playa','Iberostar Waves Las Dalias'], selection:['Iberostar Selection Anthelia','Iberostar Selection SÃ¡bila'], joia:['JOIA El Mirador by Iberostar','JOIA SalomÃ© by Iberostar','Iberostar Heritage Grand Mencey']}
+ {n:'Cádiz', c:'España · Andalucía', r:'Europa', lat:36.40, lon:-6.16, waves:['Iberostar Waves Royal Andalus'], selection:['Iberostar Selection Andalucía Playa']},
+ {n:'Málaga · Marbella', c:'España · Andalucía', r:'Europa', lat:36.51, lon:-4.88, waves:['Iberostar Waves Málaga Playa'], selection:['Iberostar Selection Marbella Coral Beach']},
+ {n:'Ibiza', c:'España · Baleares', r:'Europa', lat:38.98, lon:1.53, selection:['Iberostar Selection Santa Eulalia Ibiza']},
+ {n:'Mallorca', c:'España · Baleares', r:'Europa', lat:39.60, lon:3.00,
+   waves:['Iberostar Waves Alcudia Park','Iberostar Waves Bahía de Palma','Iberostar Waves Cala Domingos','Iberostar Waves Cala Millor','Iberostar Waves Ciudad Blanca','Iberostar Waves Club Cala Barca','Iberostar Waves Cristina','Iberostar Waves Pinos Park','Iberostar Waves Playa de Muro'],
+   selection:['Iberostar Selection Albufera Playa','Iberostar Selection Albufera Park','Iberostar Selection Jardín del Sol Suites','Iberostar Selection Llaut Palma','Iberostar Selection Playa de Muro Village','Iberostar Selection Playa de Palma','Iberostar Selection Es Trenc']},
+ {n:'Fuerteventura', c:'España · Canarias', r:'Europa', lat:28.36, lon:-14.05, waves:['Iberostar Waves Gaviotas Park','Iberostar Waves Playa Gaviotas'], selection:['Iberostar Selection Fuerteventura Palace']},
+ {n:'Lanzarote', c:'España · Canarias', r:'Europa', lat:28.92, lon:-13.66, selection:['Iberostar Selection Lanzarote Park']},
+ {n:'Tenerife', c:'España · Canarias', r:'Europa', lat:28.10, lon:-16.72, waves:['Iberostar Waves Bouganville Playa','Iberostar Waves Las Dalias'], selection:['Iberostar Selection Anthelia','Iberostar Selection Sábila'], joia:['JOIA El Mirador by Iberostar','JOIA Salomé by Iberostar','Iberostar Heritage Grand Mencey']}
 ];
 DEST.forEach(d=>{ d.waves=d.waves||[]; d.selection=d.selection||[]; d.joia=d.joia||[]; d.total=d.waves.length+d.selection.length+d.joia.length; });
 const byName = new Map(DEST.map(d=>[d.n,d]));
@@ -153,17 +153,17 @@ const PANELS = [
   {id:'mundo', title:'Todos los destinos', span:4, w:1488, h:600, pad:96, labels:false, dotScale:.62,
    names:null},
   {id:'caribe', title:'Caribe', span:3, w:1109, h:520, pad:78,
-   names:['Miami Beach','Puerto Plata','BÃ¡varo Â· Punta Cana','BayahÃ­be','Rose Hall Â· Montego Bay','Palm Beach']},
-  {id:'mexico', title:'MÃ©xico', span:1, w:351, h:520, pad:60,
-   names:['Punta Mita','CancÃºn','Cozumel','Riviera Maya Â· Playa ParaÃ­so']},
-  {id:'medoc', title:'MediterrÃ¡neo occidental', span:2, w:730, h:430, pad:64,
-   names:['Lisboa','Lagos Â· Algarve','CÃ¡diz','MÃ¡laga Â· Marbella','Ibiza','Mallorca','Agadir','Marrakech','SaÃ¯dia','Hammamet','Port El Kantaoui','Monastir Â· Mahdia','Djerba']},
+   names:['Miami Beach','Puerto Plata','Bávaro · Punta Cana','Bayahíbe','Rose Hall · Montego Bay','Palm Beach']},
+  {id:'mexico', title:'México', span:1, w:351, h:520, pad:60,
+   names:['Punta Mita','Cancún','Cozumel','Riviera Maya · Playa Paraíso']},
+  {id:'medoc', title:'Mediterráneo occidental', span:2, w:730, h:430, pad:64,
+   names:['Lisboa','Lagos · Algarve','Cádiz','Málaga · Marbella','Ibiza','Mallorca','Agadir','Marrakech','Saïdia','Hammamet','Port El Kantaoui','Monastir · Mahdia','Djerba']},
   {id:'canarias', title:'Islas Canarias', span:1, w:351, h:430, pad:56,
    names:['Lanzarote','Fuerteventura','Tenerife']},
-  {id:'egeo', title:'AdriÃ¡tico y Egeo', span:1, w:351, h:430, pad:52, padTop:120,
+  {id:'egeo', title:'Adriático y Egeo', span:1, w:351, h:430, pad:52, padTop:120,
    names:['Herceg Novi','Budva','Creta']},
-  {id:'lejano', title:'Brasil y Ãfrica oriental', span:4, w:1488, h:300, pad:70,
-   names:['Amazonas','Praia do Forte','ZanzÃ­bar']}
+  {id:'lejano', title:'Brasil y África oriental', span:4, w:1488, h:300, pad:70,
+   names:['Amazonas','Praia do Forte','Zanzíbar']}
 ];
 
 const grid = d3.select('#grid');
@@ -177,7 +177,7 @@ PANELS.forEach(p=>{ if(!p.names) p.names = DEST.map(d=>d.n); });
 panelSel.append('div').attr('class','cap').html(d=>{
   const items = d.names.map(n=>byName.get(n));
   const tot = d3.sum(items,x=>x.total);
-  return `<b>${d.title}</b><span>${items.length} destinos Â· ${tot} hoteles</span>`;
+  return `<b>${d.title}</b><span>${items.length} destinos · ${tot} hoteles</span>`;
 });
 
 d3.json('vendor/js/countries-110m.json').then(topo=>{
@@ -193,7 +193,7 @@ d3.json('vendor/js/countries-110m.json').then(topo=>{
     svg.append('path').datum(land).attr('d',path).attr('fill','var(--land)')
        .attr('stroke','#f7f3ec').attr('stroke-width',1);
 
-    // Separar burbujas que se empalman: se desplazan lo mÃ­nimo y una lÃ­nea guÃ­a marca la ubicaciÃ³n real
+    // Separar burbujas que se empalman: se desplazan lo mínimo y una línea guía marca la ubicación real
     const ds = p.dotScale||1, GAP = p.dotScale ? 5 : 8;
     const sim = items.map(d=>{const q=proj([d.lon,d.lat]);return {d, x0:q[0], y0:q[1], x:q[0], y:q[1], r:rScale(d.total)*ds};});
     const fs = d3.forceSimulation(sim)
@@ -274,7 +274,7 @@ d3.json('vendor/js/countries-110m.json').then(topo=>{
     hookTips();
     function hookTips(){
     function showTip(ev,d){
-        let html = `<h4>${d.n}</h4><div class="co">${d.c} Â· ${d.total} hotel${d.total>1?'es':''}</div>`;
+        let html = `<h4>${d.n}</h4><div class="co">${d.c} · ${d.total} hotel${d.total>1?'es':''}</div>`;
         CATS.forEach(c=>{ if(d[c.key].length){
           html += `<div class="grp">${c.label}</div><ul>`+d[c.key].map(x=>`<li><i style="background:${c.color}"></i><span>${x}</span></li>`).join('')+`</ul>`;
         }});
@@ -300,14 +300,14 @@ document.addEventListener('touchstart',function(ev){
 
 const byRegion = d3.group(DEST,d=>d.r);
 const lists = d3.select('#lists');
-['AmÃ©rica','Ãfrica','Europa'].forEach(r=>{
+['América','África','Europa'].forEach(r=>{
   const items = byRegion.get(r).slice().sort((a,b)=>d3.ascending(a.c,b.c)||d3.ascending(a.n,b.n));
   const col = lists.append('div').attr('class','col');
-  col.append('h3').text(`${r} Â· ${d3.sum(items,d=>d.total)} hoteles`);
+  col.append('h3').text(`${r} · ${d3.sum(items,d=>d.total)} hoteles`);
   items.forEach(d=>{
     const row = col.append('div').attr('class','row');
     row.append('div').attr('class','nm').text(d.n);
-    row.append('div').attr('class','cc').text(d.c.replace(' Â· ','/'));
+    row.append('div').attr('class','cc').text(d.c.replace(' · ','/'));
     const chips = row.append('div').attr('class','chips');
     CATS.forEach(c=>{
       const v=d[c.key].length;

@@ -180,7 +180,7 @@ button {
 } 
  
 .reference-copy li: before { 
-  content: 'âœ¦'; 
+  content: '✦'; 
   color: #d5b36f; 
   margin-right: 8px 
 } 
